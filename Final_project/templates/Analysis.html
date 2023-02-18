@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+   
+    </head>
+
+    <body>
+        <h1> Bank Churn Prediction</h1>
+        <h2>Model Prediction</h2>
+        <p>Please select a model:</p>
+        <select size="1" id="Model" title="" name="Model">
+            <option value="">-Select Your Model-</option>
+            <option value="knn">K-Nearest Neighbor</option>
+            <option value="svm">Support Vector Machine (SVM) </option>
+        </select>
+        
+        <div class="container">
+            <div class="knn">
+                <br> <br><br>
+            </div>
+            <div class="svc">
+                <br> <br><br>
+            </div>
+        </div>
+         
+        <div class="container">
+            <div class="knn">
+                <form action="/analyze_knn" method="POST">
+                    <label for="usertext"> K = </label>
+                    <input type="text" id="usertext" name="usertext"><br><br>
+                    <input type="submit" value="Predict">
+                </form>
+            </div>
+            <div class="svm">
+                <form action="/analyze_svm" method="POST">
+                    <label for="usertext">C = </label>
+                    <input type="text" id="usertext2" name="usertext"><br><br>
+                    <input type="submit" value="Predict">
+                </form>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script>
+        $(document).ready(function() {
+            $('#Model').bind('change', function() {
+                var elements = $('div.container').children().hide(); // hide all the elements
+                var value = $(this).val();
+
+                if (value.length) { // if somethings' selected
+                    elements.filter('.' + value).show(); // show the ones we want
+                }
+            }).trigger('change');
+        });
+        </script>
+    </body>
+    
+   
+   
+</html>  
