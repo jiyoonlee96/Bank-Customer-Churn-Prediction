@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+    <body>
+        <h2> Prediction Results : </h2>
+        Accuracy = {{ accuracy }}%
+        <br><br>
+        <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <div id="chart" class="chart">
+        <script type='text/javascript'>
+            var graphs = {{graphJSON | safe}};
+            Plotly.plot('chart',graphs,{});
+        </script>
+    </body>
+    <br><br>
+    <form action="/" method="GET">
+        <input type="submit" value="Back">
+</html>
